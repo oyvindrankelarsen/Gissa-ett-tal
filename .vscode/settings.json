@@ -1,0 +1,17 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "d:\\OneDrive\\C\\ASPCode.net Student Portal\\Inl�mningsuppgift\\Gissa ett tal",
+            "binaryPath": "d:\\OneDrive\\C\\ASPCode.net Student Portal\\Inl�mningsuppgift\\Gissa ett tal\\main.exe",
+            "binaryArgs": []
+        },
+        {
+            "cwd": "d:\\OneDrive\\C\\ASPCode.net Student Portal\\Inlamningsuppgift\\Gissa ett tal",
+            "binaryPath": "d:\\OneDrive\\C\\ASPCode.net Student Portal\\Inlamningsuppgift\\Gissa ett tal\\main.exe",
+            "binaryArgs": []
+        }
+    ],
+    "files.associations": {
+        "time.h": "c"
+    }
+}
