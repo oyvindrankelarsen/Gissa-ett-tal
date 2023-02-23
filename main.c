@@ -43,24 +43,9 @@ int slumpa()
 
     return num;
 }
-void readLowscore()
+void readLowscore() //--------------------------------------------------------------------------------------
 {
-    FILE *fpr = fopen("lowscore.txt", "r");
-    int count = 0;
-    char row[100];
-    char rows[5][100];
-    while (fgets(row, sizeof row, fpr) != NULL)
-    {
-        if (strlen(row) > 3)
-            strcpy(rows[count], row);
-
-        count++;
-    }
-}
-
-int readHighestLowscore()
-{
-    FILE *fpr = fopen("lowscore.txt", "r");
+    /*FILE *fpr = fopen("lowscore.txt", "r");
     int count = 0;
     char row[100];
     char rows[5][100];
@@ -70,12 +55,36 @@ int readHighestLowscore()
             strcpy(rows[count], row);
         count++;
     }
-    rows[4][0]
+    for(int i = 0; i<5;i++) {
+      printf(rows[i]);
+    }
+    //rows[4][0]
+    */
 }
 
-void writeLowscore()
+int readHighestLowscore() //--------------------------------------------------------------------------------------
 {
-    FILE *fpw = fopen("lowscore.txt", "w");
+    /*FILE *fpr = fopen("lowscore.txt", "r");
+    int count = 0;
+    char row[100];
+    char rows[5][100];
+    while (fgets(row, sizeof row, fpr) != NULL)
+    {
+        if (strlen(row) > 3)
+            strcpy(rows[count], row);
+        count++;
+    }
+    for(int i = 0; i<5;i++) {
+      printf(rows[i]);
+    }
+    //rows[4][0]
+    */
+}
+
+void writeLowscore() //--------------------------------------------------------------------------------------
+{
+    // Datum och tid, namn och antal gissningar ska lagras
+    // FILE *fpw = fopen("lowscore.txt", "w");
 }
 
 int gissaEttTal()
@@ -93,6 +102,19 @@ int gissaEttTal()
 
 int main(void)
 {
+/*
+    struct lowscore
+    {
+
+    }
+*/
+char *pts; /* pointer to time string */
+    time_t now; /* current time */
+    char *ctime();
+    (void) time(&now);
+    printf("%s", ctime(&now));
+    //Be advised: The output produced has a newline at the end.
+
     puts("**********************");
     puts("*** GISSA ETT TAL ****");
     puts("**********************");
@@ -114,8 +136,8 @@ int main(void)
         {
             printf("\nRätt! Du gissade rätt på %d försök.\n", countGissningar);
 
-            if (countGissningar < readHighestLowscore())
-                writeLowscore();
+            // if (countGissningar < readHighestLowscore())
+            //   writeLowscore();
             gissaIgen = false;
         }
     }
