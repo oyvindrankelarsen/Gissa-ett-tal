@@ -5,7 +5,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "safeinput.h"
-// egen header?
+
 void menu()
 {
     puts("**********************");
@@ -26,6 +26,9 @@ void menu()
     }
     if (val == 3)
         readLowscore();
+
+    else
+        menu();
 }
 
 int slumpa()
@@ -42,15 +45,37 @@ int slumpa()
 }
 void readLowscore()
 {
-    puts("Lowscore..............");
+    FILE *fpr = fopen("lowscore.txt", "r");
+    int count = 0;
+    char row[100];
+    char rows[5][100];
+    while (fgets(row, sizeof row, fpr) != NULL)
+    {
+        if (strlen(row) > 3)
+            strcpy(rows[count], row);
+
+        count++;
+    }
 }
 
 int readHighestLowscore()
 {
+    FILE *fpr = fopen("lowscore.txt", "r");
+    int count = 0;
+    char row[100];
+    char rows[5][100];
+    while (fgets(row, sizeof row, fpr) != NULL)
+    {
+        if (strlen(row) > 3)
+            strcpy(rows[count], row);
+        count++;
+    }
+    rows[4][0]
 }
 
 void writeLowscore()
 {
+    FILE *fpw = fopen("lowscore.txt", "w");
 }
 
 int gissaEttTal()
