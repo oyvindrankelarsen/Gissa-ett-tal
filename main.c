@@ -56,9 +56,14 @@ void writeLowscore()
 int gissaEttTal()
 {
     int gissatTal = 0;
-    GetInputInt("Gissa ett tal mellan 1 och 100. ", &gissatTal);
-    // felhantering
-    return gissatTal;
+    while (!(GetInputInt("Gissa ett tal mellan 1 och 100. \n", &gissatTal)))
+    {
+    }
+
+    if (gissatTal > 0 && gissatTal < 101)
+        return gissatTal;
+
+    gissaEttTal();
 }
 
 int main(void)
@@ -82,7 +87,7 @@ int main(void)
             puts("\nTalet är mindre\n");
         else
         {
-            printf("\nRätt! Du gissade på %d försök.\n", countGissningar);
+            printf("\nRätt! Du gissade rätt på %d försök.\n", countGissningar);
 
             if (countGissningar < readHighestLowscore())
                 writeLowscore();
