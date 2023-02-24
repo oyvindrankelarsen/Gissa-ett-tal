@@ -19,13 +19,13 @@ void menu()
 
     if (val == 1)
         main();
-    if (val == 2)
+    else if (val == 2)
     {
         puts("\nTack för den här gången!");
         exit(0);
     }
-    if (val == 3)
-        readLowscore();
+    else if (val == 3)
+        puts("3.");
 
     else
         menu();
@@ -43,50 +43,30 @@ int slumpa()
 
     return num;
 }
+/*
 void readLowscore() //--------------------------------------------------------------------------------------
 {
-    /*FILE *fpr = fopen("lowscore.txt", "r");
-    int count = 0;
-    char row[100];
-    char rows[5][100];
-    while (fgets(row, sizeof row, fpr) != NULL)
-    {
-        if (strlen(row) > 3)
-            strcpy(rows[count], row);
-        count++;
-    }
-    for(int i = 0; i<5;i++) {
-      printf(rows[i]);
-    }
-    //rows[4][0]
-    */
+
+    FILE *fpr = fopen("lowscore.txt", "r");
+
 }
 
-int readHighestLowscore() //--------------------------------------------------------------------------------------
+int readHighestLowscore() //-------------------------
 {
-    /*FILE *fpr = fopen("lowscore.txt", "r");
-    int count = 0;
-    char row[100];
-    char rows[5][100];
-    while (fgets(row, sizeof row, fpr) != NULL)
-    {
-        if (strlen(row) > 3)
-            strcpy(rows[count], row);
-        count++;
-    }
-    for(int i = 0; i<5;i++) {
-      printf(rows[i]);
-    }
-    //rows[4][0]
-    */
+    //ta högsta, dvs array[sizeof array -1].guesses
+    FILE *fpr = fopen("lowscore.txt", "r");
 }
 
 void writeLowscore() //--------------------------------------------------------------------------------------
 {
     // Datum och tid, namn och antal gissningar ska lagras
-    // FILE *fpw = fopen("lowscore.txt", "w");
+    FILE *fpw = fopen("lowscore.txt", "w");
+    struct lowscore [5];
+    time_t result = time(NULL);
+    if (result != (time_t)(-1))
+        printf("The current time is %s\n", asctime(localtime(&result)));
 }
-
+*/
 int gissaEttTal()
 {
     int gissatTal = 0;
@@ -102,18 +82,15 @@ int gissaEttTal()
 
 int main(void)
 {
-/*
+
     struct lowscore
     {
+        char datetime[30];
+        char name[30];
+        int guesses[20];
+    };
 
-    }
-*/
-char *pts; /* pointer to time string */
-    time_t now; /* current time */
-    char *ctime();
-    (void) time(&now);
-    printf("%s", ctime(&now));
-    //Be advised: The output produced has a newline at the end.
+    struct lowscore lowestscores[5];
 
     puts("**********************");
     puts("*** GISSA ETT TAL ****");
@@ -135,8 +112,9 @@ char *pts; /* pointer to time string */
         else
         {
             printf("\nRätt! Du gissade rätt på %d försök.\n", countGissningar);
+            // läs in structs i array
 
-            // if (countGissningar < readHighestLowscore())
+            // if (countGissningar < array[sizeof array -1].guesses)
             //   writeLowscore();
             gissaIgen = false;
         }
