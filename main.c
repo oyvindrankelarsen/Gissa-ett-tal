@@ -25,7 +25,7 @@ void menu()
         exit(0);
     }
     else if (val == 3)
-        puts("3.");
+        puts("3. To be implemented in next sprint");
 
     else
         menu();
@@ -44,11 +44,14 @@ int slumpa()
     return num;
 }
 /*
-void readLowscore() //--------------------------------------------------------------------------------------
+void readLowscore(struct lowscore *lowestscores)
 {
 
     FILE *fpr = fopen("lowscore.txt", "r");
-
+    while (fread(&input, sizeof(struct person), 1, infile))
+    {
+        printf("id = %d name = %s %s\n", input.id, input.fname, input.lname);
+    }
 }
 
 int readHighestLowscore() //-------------------------
@@ -82,7 +85,7 @@ int gissaEttTal()
 
 int main(void)
 {
-
+/*
     struct lowscore
     {
         char datetime[30];
@@ -91,7 +94,7 @@ int main(void)
     };
 
     struct lowscore lowestscores[5];
-
+*/
     puts("**********************");
     puts("*** GISSA ETT TAL ****");
     puts("**********************");
@@ -112,8 +115,8 @@ int main(void)
         else
         {
             printf("\nRätt! Du gissade rätt på %d försök.\n", countGissningar);
-            // läs in structs i array
 
+            //readLowscore(lowestscores);
             // if (countGissningar < array[sizeof array -1].guesses)
             //   writeLowscore();
             gissaIgen = false;
